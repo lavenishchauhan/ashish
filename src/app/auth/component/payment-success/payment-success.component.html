@@ -1,0 +1,40 @@
+<br>
+<h2>Payment Status {{paymentStatus}}</h2>
+
+<br><br>
+
+<table class="table table-bordered" style="text-align: left">
+  <thead>
+    <tr class="table-active">
+      <th width="30%">Plan Name</th>
+      <th width="35%">CustomerId</th>
+      <th>SubscriptionId</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{invoicedata.subscriptionName}}</td>
+      <td>{{invoicedata.customerId}}</td>
+      <td>{{invoicedata.subscriptionId}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<br> <br>
+
+<table class="table table-bordered">
+  <thead>
+    <tr class="table-success">
+      <th width="30%">Amount Value</th>
+      <th width="35%">Amount Currency</th>
+      <th>Start Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{invoicedata.value}} </td>
+      <td>{{invoicedata.currency}} </td>
+      <td>{{invoicedata.date}} </td>
+    </tr>
+  </tbody>
+</table>

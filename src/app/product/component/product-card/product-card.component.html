@@ -1,0 +1,13 @@
+<div class="card productcart">
+  <div class="productcartimg" *ngIf="product.imgUrl">
+    <a routerLink="{{product._id}}">
+      <img class="card-img-top promain" class="mx-auto d-block img-responsive img-fluid" [src]="product.imgUrl"
+        [alt]="product.title">
+    </a>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{product.title | uppercase}}</h5>
+    <div class="card-text">$ {{product.price  | currencyFormat }} </div>
+    <div class="card-text"><b>{{product.category}}</b></div>
+  </div>
+</div>

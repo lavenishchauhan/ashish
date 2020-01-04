@@ -1,0 +1,162 @@
+<div class="main-header">
+  <div class="container">
+    <div class="topnav">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <a routerLink="/" class="navbar-brand">
+          <img width="130" src="http://mycfo.websitedevelopermelbourne.net.au/wp-content/themes/mycfo/images/logo.png" alt="Ajio">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+          <!-- <div class="authnav">
+            <ul>
+
+                
+
+              <li class="nav-item" >
+                <a class="nav-link" (click)="registerModal(registerForm)"> Register</a>
+              </li>
+
+              <li *ngIf="!authService.isLoggedIn()" class="nav-item" routerLinkActive="active current">
+                <a class="nav-link" routerLink="/login">Login </a>
+              </li>
+
+              <li *ngIf="authService.isLoggedIn()" class="nav-item">
+                <a class="nav-link" routerLink="" (click)="authService.logout()">
+                  Logout </a>
+              </li>
+
+
+              <li class="nav-item" routerLinkActive="active current">
+                <a class="nav-link" routerLink="product"> Customer Care</a>
+              </li>
+            </ul>
+          </div> -->
+
+
+
+          <ul class="navbar-nav ml-auto">
+
+              <li class="nav-item" routerLinkActive="active current">
+                  <a class="nav-link" routerLink="/">Pay</a>
+                </li>
+
+            <!-- <li class="nav-item" routerLinkActive="active current">
+              <a class="nav-link" routerLink="/">Home</a>
+            </li>
+
+            <li class="nav-item" routerLinkActive="active current">
+              <a class="nav-link" routerLink="product">Product</a>
+            </li> -->
+
+            <!-- <li class="nav-item cartdrop" routerLinkActive="active current">
+              <a class="nav-link" routerLink="product"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+
+              <div class="dropcart">
+                  <div class="setcart" *ngFor="let post of productService.buyItem(); let i=index">
+                    <div class="row">
+                      <div class="col-sm-5"> 
+                        <img class="img-thumbnail" [src]="post.imgUrl"> 
+                      </div>
+                      <div class="col-sm-7">
+                        <div class="carttitle"> {{post.title}} </div>
+                        <div class="cratprice">Rs  <span>{{post.price}}</span> </div>
+                        <div class="cartqut"> Qty  <span>{{post.quantity}}</span> </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+            </li> -->
+
+
+
+          </ul>
+
+        </div>
+
+      </nav>
+    </div>
+  </div>
+</div>
+
+<div class="headerspace"> </div>
+
+
+<!-- <button (click)="formOpen(loginForm,registerForm)">  hhhhhh </button> -->
+
+
+
+<ng-template #registerForm let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss(registerForm)">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <app-register> </app-register>
+
+      <button (click)="loginModal(loginForm,registerForm)"> Login </button>
+
+
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+</ng-template>
+  
+
+
+
+<ng-template #loginForm let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss(resultloginForm)">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <app-login> </app-login>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+</ng-template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

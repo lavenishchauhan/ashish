@@ -1,0 +1,94 @@
+<img style="width: 100%;
+margin-top: -58px;
+margin-bottom: 40px;"
+  src="https://assets.ajio.com/medias/sys_master/images/images/h32/h09/14012091301918/cart-page-banner-mobile-FB.jpg" />
+
+
+<div class="row">
+  <div class="col-sm-8">
+    <div class="pb-5">
+      <div class=" p5 bg-white rounded shadow-sm mb-5">
+        <!-- Shopping cart table -->
+        <div class="table-responsive">
+          <table class="table">
+            <thead *ngIf="productService.buyItem()">
+              <tr>
+                <th scope="col" class="border-0 bg-light">
+                  <div class="p-2 px-3 text-uppercase">Product</div>
+                </th>
+                <th scope="col" class="border-0 bg-light">
+                  <div class="py-2 text-uppercase">Price</div>
+                </th>
+                <th scope="col" class="border-0 bg-light">
+                  <div class="py-2 text-uppercase">Quantity</div>
+                </th>
+                <th scope="col" class="border-0 bg-light">
+                  <div class="py-2 text-uppercase">Update</div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container *ngFor="let item of productService.buyItem(); let i=index">
+                <tr *ngIf="!item == 0">
+                  <th scope="row">
+                    <div class="p-2">
+                      <img src="{{item.imgUrl}}" alt="{{item.title}}" width="70" class="img-fluid rounded shadow-sm">
+                      <div class="ml-3 d-inline-block align-middle">
+                        <h5 class="mb-0">
+                          <a href="#" class="text-dark d-inline-block">{{item.title}}</a></h5>
+                        <span class="text-muted font-weight-normal font-italic">Category: {{item.category}}</span>
+                      </div>
+                    </div>
+                  </th>
+                  <td class="align-middle"><strong>$ {{item.price * item.quantity }} </strong></td>
+                  <td class="align-middle"><strong>
+                      <input type="number" min="1" max=""#quantity name="quantity" [value]="item.quantity" size="4" pattern="[0-9]">
+                  </strong></td>
+                  <td class="align-middle">
+                    <button class="btn btn-primary"  (click)="addtocart(i,quantity)" class="text-dark">
+                      Update Cart
+                    </button>
+                  </td>
+                </tr>
+              </ng-container>
+            </tbody>
+          </table>
+        </div>
+        <!-- End -->
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="pb-5">
+      <div class="p5 bg-white rounded shadow-sm mb-5">
+        <div class="cart_totals ">
+          <h2>Cart totals</h2>
+
+          <table cellspacing="0" class="shop_table shop_table_responsive">
+            <tbody>
+              <tr class="cart-subtotal">
+                <th>Subtotal</th>
+                <td><span> $ {{productService.totalCartPrice()}}   </span></td>
+              </tr>
+              <tr>
+                <th>Shipping</th>
+                <td>Enter your address to view shipping options.
+                </td>
+              </tr>
+              <tr class="order-total">
+                <th>Total</th>
+                <td><strong><span>$ {{productService.totalCartPrice()}}</span></strong></td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <div class="wc-proceed-to-checkout">
+            <a href="" class="btn btn-primary btn-block">Proceed to shipping</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>

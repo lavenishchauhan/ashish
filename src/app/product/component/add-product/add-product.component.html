@@ -1,0 +1,82 @@
+<div class="row">
+
+
+
+    <ng-container *ngFor="let repo of repos | async; let i=index">
+
+      <div class="col-md-3"> {{repo.name}} </div> 
+       
+    </ng-container>
+
+
+
+
+
+
+    <div class="col-md-6 mx-auto">
+      <br />
+      <br />
+      <div class="card">
+        <div class="card-header">
+          <h2 class="form-signin-heading">login</h2>
+        </div>
+        <div class="card-body">
+  
+          <form #login="ngForm" (ngSubmit)="login.form.valid && signIn(login)" novalidate>
+  
+  
+            <!-- <div class="alert" [hidden]="!messageInfo"  
+                  [class.alert-success]="formSuccess"  
+                  [class.alert-danger]="formError">
+                  <strong>{{MessageType}}</strong> {{messageInfo}}
+              </div> -->
+  
+        
+  
+  
+  
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input required="required"  [(ngModel)]="loginUserData.email" name="email"
+                #email='ngModel' [ngClass]="!email.valid &&  (email.touched || login.submitted) ? 'input-error' : '' "
+                id="email" class="form-control" type="email" placeholder="Email">
+              <!--start-form-error-->
+       
+              <!--end-form-error-->
+            </div>
+            <!--end-form-group -->
+  
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input required="required"  [(ngModel)]="loginUserData.password" name="password"
+                #password='ngModel'
+                [ngClass]="!password.valid &&  (password.touched || login.submitted) ? 'input-error' : '' "
+                id="password" class="form-control" type="password" placeholder="Password">
+        
+              <!--end-form-error-->
+            </div>
+  
+  
+            <br />
+            <p>{{login.value | json}} </p>
+            <div class="form-group">
+              <!-- [disabled]="!login.valid" -->
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+        </div>
+  
+      </div>
+  
+    </div>
+  </div>
+  

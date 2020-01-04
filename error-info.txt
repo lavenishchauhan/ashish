@@ -1,0 +1,5 @@
+
+angular2-jwt error then run this command
+
+// npm install --save rxjs-compat
+// npm install @angular/http@latest

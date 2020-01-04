@@ -1,0 +1,52 @@
+<div class="card prodetail">
+  <div class="container-fliud">
+    <div class="wrapper row">
+      <div class="preview col-md-6">
+        <div class="product-gallery">
+          <div class="bigimg">
+            <img class="img-thumbnail" src="{{singleProduct.imgUrl}}" alt="{{singleProduct.title}}">
+          </div>
+          <div class="imgthumbnail">
+            <div class="thumbs" (click)="progallery(thumb.src)" *ngFor="let thumb of imgthumbnail">
+              <img src="{{thumb.src}}">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="details col-md-6">
+        <h3 class="product-title">{{singleProduct.title}}</h3>
+
+<div class="detailpri"> 
+    <div class="prisec"> 
+  <div class="detailprisec">Price: <span> ${{singleProduct.price | currencyFormat}}</span></div>
+
+  <div class="detailprisec">Quantity: 
+    <input type="number"  min="1" max=""#quantity name="quantity" value="1" size="4" pattern="[0-9]*">
+  </div>
+</div>
+  <div class="action">
+    <button (click)="addtocart(singleProduct,quantity)" class=" btn btn-primary" type="button">Add to Cart</button>
+    <a class=" btn btn-secondary"  routerLink="/product/viewcart">View Cart</a>
+  </div>
+
+</div>
+
+
+        <div class="product-description">
+            <p>For Cats and Small Animals</p>
+            <p>Made from the soft core of hemp’s stem, Phyto Animal Health’s Hemp Bedding & Litter offers greater absorbency and superior qualities than any other bedding available on the market. This premium, all-natural hemp-based bedding is naturally resistant to microbes, fungi, bacteria, and virus, making it an ideal alternative for litter boxes. Available to absorb 4x its own weight, Hemp Bedding & Litter requires less labor to service and reduces waste and disposal.</p>
+
+
+            <ul>
+                <li>Premium, All-Natural Hemp Bedding</li>
+                <li>Produced From Soft Core of Hemp Stem</li>
+                <li>High Absorbency, Low Dust, Reduced Ammonia Smell</li>
+                <li>No Chemical Residues, No Damaging Phenols</li>
+                <li>Available in 2.5 lbs bags</li>
+                </ul>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>

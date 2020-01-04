@@ -1,0 +1,207 @@
+<div class="row">
+  <div class="col-md-8 mx-auto">
+    <div style="text-align: center" [style.display]="isActive ? 'block':'none'">
+      <img width="100" src="http://www.theappguruz.com/public/assets/admin/images/loaders/p10.gif" />
+    </div>
+    <br />
+    <br />
+    <div class="card" [style.display]="formActive ? 'block':'none'">
+      <div class="card-header">
+        <h2 class="form-signin-heading">Buy Product</h2>
+      </div>
+      <div class="card-body" >
+        <form #customer="ngForm" (ngSubmit)="customer.form.valid && createCutomer(customer)" novalidate>
+
+
+          <!-- <div class="alert" [hidden]="!messageInfo"  
+                  [class.alert-success]="formSuccess"  
+                  [class.alert-danger]="formError">
+                  <strong>{{MessageType}}</strong> {{messageInfo}}
+              </div> -->
+
+
+
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="firstName">Name</label>
+                <input required="required" [pattern]="regex.alphaRegex" [(ngModel)]="cutomerForm.firstName"
+                  name="firstName" #firstName='ngModel'
+                  [ngClass]="!firstName.valid &&  (firstName.touched || customer.submitted) ? 'input-error' : '' "
+                  id="firstName" class="form-control" type="text" placeholder="firstName">
+                <!--start-form-error-->
+                <div class="form-error alert alert-danger errorcont "
+                  *ngIf="!firstName.valid && (firstName.touched || (customer.submitted && customer.touched) )">
+                  <div class="inputerror" *ngIf="firstName.errors.required">
+                    firstName is required
+                  </div>
+                  <div class="inputerror" *ngIf="firstName.errors.pattern">
+                    firstName doesn't match the pattern
+                  </div>
+                </div>
+                <!--end-form-error-->
+              </div>
+              <!--end-form-group -->
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="lastName">last Name</label>
+                <input required="required" [pattern]="regex.alphaRegex" [(ngModel)]="cutomerForm.lastName"
+                  name="lastName" #lastName='ngModel'
+                  [ngClass]="!lastName.valid &&  (lastName.touched || customer.submitted) ? 'input-error' : '' "
+                  id="lastName" class="form-control" type="text" placeholder="Last Name">
+                <!--start-form-error-->
+                <div class="form-error alert alert-danger errorcont "
+                  *ngIf="!lastName.valid && (lastName.touched || (customer.submitted && customer.touched) )">
+                  <div class="inputerror" *ngIf="lastName.errors.required">
+                    last lastName is required
+                  </div>
+                  <div class="inputerror" *ngIf="lastName.errors.pattern">
+                    last lastName doesn't match the pattern
+                  </div>
+                </div>
+                <!--end-form-error-->
+              </div>
+              <!--end-form-group -->
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input required="required" [pattern]="regex.email" [(ngModel)]="cutomerForm.email" name="email"
+                  #email='ngModel'
+                  [ngClass]="!email.valid &&  (email.touched || customer.submitted) ? 'input-error' : '' " id="email"
+                  class="form-control" type="email" placeholder="Email">
+                <!--start-form-error-->
+                <div class="form-error alert alert-danger errorcont "
+                  *ngIf="!email.valid && (email.touched || (customer.submitted && customer.touched) )">
+                  <div class="inputerror" *ngIf="email.errors.required">
+                    Email is required
+                  </div>
+                  <div class="inputerror" *ngIf="email.errors.pattern">
+                    Email doesn't match the pattern
+                  </div>
+                </div>
+                <!--end-form-error-->
+              </div>
+              <!--end-form-group -->
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="address">address</label>
+                <input required="required" [(ngModel)]="cutomerForm.address" name="address" #address='ngModel'
+                  [ngClass]="!address.valid &&  (address.touched || customer.submitted) ? 'input-error' : '' "
+                  id="address" class="form-control" type="text" placeholder="Name">
+                <!--start-form-error-->
+                <div class="form-error alert alert-danger errorcont "
+                  *ngIf="!address.valid && (address.touched || (customer.submitted && customer.touched) )">
+                  <div class="inputerror" *ngIf="address.errors.required">
+                    address name is required
+                  </div>
+
+                </div>
+                <!--end-form-error-->
+              </div>
+              <!--end-form-group -->
+            </div>
+          </div>
+
+          <h4> Card Information</h4>
+
+          <br />
+
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="accountHolderName">Card Holder Name</label>
+                <input required="required" [pattern]="regex.alphaRegex" [(ngModel)]="cutomerForm.accountHolderName"
+                  name="accountHolderName" #accountHolderName='ngModel'
+                  [ngClass]="!accountHolderName.valid &&  (accountHolderName.touched || customer.submitted) ? 'input-error' : '' "
+                  id="accountHolderName" class="form-control" type="text" placeholder="Card Holder Name">
+                <!--start-form-error-->
+                <div class="form-error alert alert-danger errorcont "
+                  *ngIf="!accountHolderName.valid && (accountHolderName.touched || (customer.submitted && customer.touched) )">
+                  <div class="inputerror" *ngIf="accountHolderName.errors.required">
+                    Card Holder name is required
+                  </div>
+                  <div class="inputerror" *ngIf="accountHolderName.errors.pattern">
+                    Card Holder name doesn't match the pattern
+                  </div>
+                </div>
+                <!--end-form-error-->
+              </div>
+              <!--end-form-group -->
+            </div>
+
+
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="accountNumber">Card Number (4893772401803792)</label>
+                <input required="required" [(ngModel)]="cutomerForm.accountNumber" name="accountNumber"
+                  #accountNumber='ngModel'
+                  [ngClass]="!accountNumber.valid &&  (accountNumber.touched || customer.submitted) ? 'input-error' : '' "
+                  id="accountNumber" class="form-control" type="text" placeholder="4893772401803792">
+                <!--start-form-error-->
+                <div class="form-error alert alert-danger errorcont "
+                  *ngIf="!accountNumber.valid && (accountNumber.touched || (customer.submitted && customer.touched) )">
+                  <div class="inputerror" *ngIf="accountNumber.errors.required">
+                    Card Holder name is required
+                  </div>
+                </div>
+                <!--end-form-error-->
+              </div>
+              <!--end-form-group -->
+            </div>
+
+
+
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="expiryMonth">Expiry Month</label>
+                <input required="required" [(ngModel)]="cutomerForm.expiryMonth" name="expiryMonth"
+                  #expiryMonth='ngModel'
+                  [ngClass]="!expiryMonth.valid &&  (expiryMonth.touched || customer.submitted) ? 'input-error' : '' "
+                  id="expiryMonth" class="form-control" type="text" placeholder="01">
+                <!--start-form-error-->
+                <div class="form-error alert alert-danger errorcont "
+                  *ngIf="!expiryMonth.valid && (expiryMonth.touched || (customer.submitted && customer.touched) )">
+                  <div class="inputerror" *ngIf="expiryMonth.errors.required">
+                    Expiry Month is required
+                  </div>
+                </div>
+                <!--end-form-error-->
+              </div>
+              <!--end-form-group -->
+            </div>
+
+
+
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="expiryYear">Expiry Year</label>
+                <input required="required" [(ngModel)]="cutomerForm.expiryYear" name="expiryYear" #expiryYear='ngModel'
+                  [ngClass]="!expiryYear.valid &&  (expiryYear.touched || customer.submitted) ? 'input-error' : '' "
+                  id="expiryYear" class="form-control" type="text" placeholder="22">
+                <!--start-form-error-->
+                <div class="form-error alert alert-danger errorcont "
+                  *ngIf="!expiryYear.valid && (expiryYear.touched || (customer.submitted && customer.touched) )">
+                  <div class="inputerror" *ngIf="expiryYear.errors.required">
+                    expiryYear name is required
+                  </div>
+                </div>
+                <!--end-form-error-->
+              </div>
+              <!--end-form-group -->
+            </div>
+
+          </div>
+
+          <br />
+          <!-- <p>{{customer.value | json}} </p> -->
+          <div class="form-group">
+            <!-- [disabled]="!login.valid" -->
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>

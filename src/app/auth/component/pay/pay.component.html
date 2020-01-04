@@ -1,0 +1,67 @@
+
+
+<!-- <button (click)="payment()"> Pay</button> -->
+
+<!-- <button (click)="pricingPlans()"> plan</button> -->
+
+
+
+<div class="row">
+    <div class="col-sm-6"><h1>Pricing Plans </h1></div>
+    <div class="col-sm-6 text-right"> 
+      <a   routerLink="/invoicelist" class="btn btn-info">Check Total Payment </a>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+<div style="text-align: center" [style.display]="isActive ? 'block':'none'"> 
+    <img  width="100" src="http://www.theappguruz.com/public/assets/admin/images/loaders/p10.gif"/>
+    </div>
+
+<div class="row"> 
+<div  class="col-sm-5" *ngFor="let plan of planFullData; let i=index">
+    <div class="card" style="width:20rem;margin:20px 0 24px 0">
+      <img class="card-img-top"
+        src="http://mycfo.websitedevelopermelbourne.net.au/wp-content/uploads/2018/10/home-pic.jpg" alt="image"
+        style="width:100%">
+      <div class="card-body">
+        <h4 class="card-title">{{plan.name | uppercase}}</h4>
+        <p class="card-text">Plan Id: {{plan.id}} </p>
+        <p class="card-text">Price: {{plan.amount.currency}} {{plan.amount.value}}</p>
+        <a    routerLink="/buycourse"  [queryParams]="{plan:plan.id,amount:plan.amount.value}"  class="btn btn-primary">Buy Now</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- <br> <br> <br>
+<h2>Customer</h2>
+<p>List a customer </p>            
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Id</th>
+      <td>Plan Name</td>
+      <td>Start Date</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let customer of showPlancustomer; let i=index">
+      <td>{{customer.firstName}} {{customer.lastName}}</td>
+      <td>{{customer.email}}</td>
+      <td>{{customer.id}}</td>
+      <td>{{customer.name}} </td>
+      <td>{{customer.startDate}} </td>
+    </tr>
+  </tbody>
+</table> -->

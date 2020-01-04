@@ -1,0 +1,7 @@
+{
+    "/api/":{
+        "target":"https://api-sandbox.ezypay.com/v2/billing/customers",
+        "secure":false,
+        "changeOrigin":true
+    }
+}

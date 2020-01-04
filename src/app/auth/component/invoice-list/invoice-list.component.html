@@ -1,0 +1,40 @@
+
+
+<div class="row">
+  <div class="col-sm-6"><h2>Invoice list</h2></div>
+  <div class="col-sm-6 text-right"> 
+    <button class="btn btn-info">Total Payment Received = {{totalPaymentReceived}}</button>
+  </div>
+</div>
+
+
+
+<br/>
+
+
+
+
+<table class="table table-bordered table-sm">
+    <thead>
+      <tr class="table-active">
+        <th>Plan Name</th>
+        <th>CustomerId</th>
+        <th>SubscriptionId</th>
+        <!-- <th>documentNumber</th> -->
+        <th>Price</th>
+        <th> Currency</th>
+        <th>Start Date</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let inList of invoiceList; let i=index">
+        <td>{{inList.subscriptionName}}</td>
+        <td>{{inList.customerId}}</td>
+        <td>{{inList.subscriptionId}}</td>
+        <!-- <td>{{invoicedata.documentNumber}} </td> -->
+        <td>{{inList.amount.value}} </td>
+        <td>{{inList.amount.currency}} </td>
+        <td>{{inList.date}} </td>
+      </tr>
+    </tbody>
+  </table>
